@@ -1,0 +1,543 @@
+<HTML><HEAD><TITLE>Perl-DFC Objects and Methods</TITLE></HEAD>
+<BODY><A NAME='top'><CENTER><H1>DFC.PM</H1>
+<H2>Perl-DFC Objects and Methods</H2>
+Alpha Release -- Wed Nov 15 23:35:42 2000<BR>
+M. Scott Roth -- michael.s.roth@saic.com
+ </CENTER><HR>
+<H1>Contents</H1>
+<A HREF='#DFC.PM'>DFC.PM</A><BR>
+<A HREF='#DfClient.pm'>DfClient.pm</A><BR>
+<A HREF='#DfClientX.pm'>DfClientX.pm</A><BR>
+<A HREF='#DfException.pm'>DfException.pm</A><BR>
+<A HREF='#DfLoginInfo.pm'>DfLoginInfo.pm</A><BR>
+<A HREF='#DfQuery.pm'>DfQuery.pm</A><BR>
+<A HREF='#IDfAttr.pm'>IDfAttr.pm</A><BR>
+<A HREF='#IDfClient.pm'>IDfClient.pm</A><BR>
+<A HREF='#IDfCollection.pm'>IDfCollection.pm</A><BR>
+<A HREF='#IDfException.pm'>IDfException.pm</A><BR>
+<A HREF='#IDfLoginInfo.pm'>IDfLoginInfo.pm</A><BR>
+<A HREF='#IDfPersistentObject.pm'>IDfPersistentObject.pm</A><BR>
+<A HREF='#IDfQuery.pm'>IDfQuery.pm</A><BR>
+<A HREF='#IDfSession.pm'>IDfSession.pm</A><BR>
+<A HREF='#IDfSysObject.pm'>IDfSysObject.pm</A><BR>
+<A HREF='#IDfTypedObject.pm'>IDfTypedObject.pm</A><BR>
+<P><FONT SIZE=-1><A HREF='#top'>[top]</A></FONT><HR><P>
+<A NAME='DFC.PM'>
+<H2>DFC.PM</H2>
+<LI>castToIDfDocument</LI>
+<LI>castToIDfSysObject</LI>
+<LI>castToIDfFolder</LI>
+<LI>castToIDfPersistentObject</LI>
+<H3>package: IDfValidator</H3><UL>
+</UL><P>
+<H3>package: DfId</H3><UL>
+</UL><P>
+<H3>package: IDfId</H3><UL>
+</UL><P>
+<H3>package: IDfType</H3><UL>
+</UL><P>
+<H3>package: IDfRelation</H3><UL>
+</UL><P>
+<H3>package: IDfACL</H3><UL>
+</UL><P>
+<H3>package: IDfFormat</H3><UL>
+</UL><P>
+<H3>package: IDfVersionLabels</H3><UL>
+</UL><P>
+<H3>package: IDfVersionPolicy</H3><UL>
+</UL><P>
+<H3>package: IDfDocument</H3><UL>
+</UL><P>
+<H3>package: IDfProperties</H3><UL>
+</UL><P>
+<H3>package: IDfDocbaseMap</H3><UL>
+</UL><P>
+<H3>package: IDfFolder</H3><UL>
+</UL><P>
+<H3>package: IDfGroup</H3><UL>
+</UL><P>
+<H3>package: IDfRelationType</H3><UL>
+</UL><P>
+<H3>package: IDfUser</H3><UL>
+</UL><P>
+<H3>package: IDfVersionTreeLabels</H3><UL>
+</UL><P>
+<H3>package: IDfWorkflowBuilder</H3><UL>
+</UL><FONT SIZE=-1><A HREF='#top'>[top]</A></FONT><HR><P>
+<A NAME='DfClient.pm'>
+<H2>DfClient.pm</H2>
+<H3>package: DfClient</H3><UL>
+<LI>new</LI>
+<LI>getDFCVersion</LI>
+<LI>getLocalClient</LI>
+<LI>getLocalClient32</LI>
+<LI>getRemoteClient</LI>
+</UL><FONT SIZE=-1><A HREF='#top'>[top]</A></FONT><HR><P>
+<A NAME='DfClientX.pm'>
+<H2>DfClientX.pm</H2>
+<H3>package: DfClientX</H3><UL>
+<LI>new</LI>
+<LI>getLocalClient</LI>
+</UL><FONT SIZE=-1><A HREF='#top'>[top]</A></FONT><HR><P>
+<A NAME='DfException.pm'>
+<H2>DfException.pm</H2>
+<H3>package: DfException</H3><UL>
+<LI>new</LI>
+</UL><FONT SIZE=-1><A HREF='#top'>[top]</A></FONT><HR><P>
+<A NAME='DfLoginInfo.pm'>
+<H2>DfLoginInfo.pm</H2>
+<H3>package: DfLoginInfo</H3><UL>
+<LI>new</LI>
+</UL><FONT SIZE=-1><A HREF='#top'>[top]</A></FONT><HR><P>
+<A NAME='DfQuery.pm'>
+<H2>DfQuery.pm</H2>
+<H3>package: DfQuery</H3><UL>
+<LI>new</LI>
+</UL><FONT SIZE=-1><A HREF='#top'>[top]</A></FONT><HR><P>
+<A NAME='IDfAttr.pm'>
+<H2>IDfAttr.pm</H2>
+<H3>package: IDfAttr</H3><UL>
+<LI>getDataType</LI>
+<LI>getLength</LI>
+<LI>getName</LI>
+<LI>isRepeating</LI>
+</UL><FONT SIZE=-1><A HREF='#top'>[top]</A></FONT><HR><P>
+<A NAME='IDfClient.pm'>
+<H2>IDfClient.pm</H2>
+<H3>package: IDfClient</H3><UL>
+<LI>adoptDMCLSession</LI>
+<LI>enumSharedSessions</LI>
+<LI>findSession</LI>
+<LI>getClientConfig</LI>
+<LI>getContext</LI>
+<LI>getDocbaseMap</LI>
+<LI>getSharedSession</LI>
+<LI>newSession</LI>
+<LI>unadoptDMCLSession</LI>
+</UL><FONT SIZE=-1><A HREF='#top'>[top]</A></FONT><HR><P>
+<A NAME='IDfCollection.pm'>
+<H2>IDfCollection.pm</H2>
+<H3>package: IDfCollection</H3><UL>
+<LI>close</LI>
+<LI>getBytesBuffer</LI>
+<LI>getState</LI>
+<LI>getTypedObject</LI>
+<LI>next</LI>
+</UL><FONT SIZE=-1><A HREF='#top'>[top]</A></FONT><HR><P>
+<A NAME='IDfException.pm'>
+<H2>IDfException.pm</H2>
+<H3>package: IDfException</H3><UL>
+<LI>getNextException</LI>
+<LI>getMessage</LI>
+</UL><FONT SIZE=-1><A HREF='#top'>[top]</A></FONT><HR><P>
+<A NAME='IDfLoginInfo.pm'>
+<H2>IDfLoginInfo.pm</H2>
+<H3>package: IDfLoginInfo</H3><UL>
+<LI>getDomain</LI>
+<LI>getPassword</LI>
+<LI>getUser</LI>
+<LI>getUserArg1</LI>
+<LI>getUserArg2</LI>
+<LI>setDomain</LI>
+<LI>setPassword</LI>
+<LI>setUser</LI>
+<LI>setUserArg1</LI>
+<LI>setUserArg2</LI>
+</UL><FONT SIZE=-1><A HREF='#top'>[top]</A></FONT><HR><P>
+<A NAME='IDfPersistentObject.pm'>
+<H2>IDfPersistentObject.pm</H2>
+<H3>package: IDfPersistentObject</H3><UL>
+<LI>addChildRelative</LI>
+<LI>addParentRelative</LI>
+<LI>apiExec</LI>
+<LI>apiGet</LI>
+<LI>apiSet</LI>
+<LI>destroy</LI>
+<LI>fetch</LI>
+<LI>getChildRelatives</LI>
+<LI>getParentRelatives</LI>
+<LI>getType</LI>
+<LI>getValidator</LI>
+<LI>getVStamp</LI>
+<LI>isDeleted</LI>
+<LI>isDirty</LI>
+<LI>isNew</LI>
+<LI>isReplica</LI>
+<LI>removeChildRelative</LI>
+<LI>removeParentRelative</LI>
+<LI>revert</LI>
+<LI>save</LI>
+<LI>signoff</LI>
+</UL><FONT SIZE=-1><A HREF='#top'>[top]</A></FONT><HR><P>
+<A NAME='IDfQuery.pm'>
+<H2>IDfQuery.pm</H2>
+<H3>package: IDfQuery</H3><UL>
+<LI>execute</LI>
+<LI>getBatchSize</LI>
+<LI>getDQL</LI>
+<LI>setBatchSize</LI>
+<LI>setDQL</LI>
+</UL><FONT SIZE=-1><A HREF='#top'>[top]</A></FONT><HR><P>
+<A NAME='IDfSession.pm'>
+<H2>IDfSession.pm</H2>
+<H3>package: IDfSession</H3><UL>
+<LI>abortTrans</LI>
+<LI>apiDesc</LI>
+<LI>apiExec</LI>
+<LI>apiGet</LI>
+<LI>apiGetBytes</LI>
+<LI>apiSet</LI>
+<LI>apiSetBytes</LI>
+<LI>apply</LI>
+<LI>archive</LI>
+<LI>beginTrans</LI>
+<LI>changePassword</LI>
+<LI>commitTrans</LI>
+<LI>dequeue</LI>
+<LI>describe</LI>
+<LI>disconnect</LI>
+<LI>flush</LI>
+<LI>flushCache</LI>
+<LI>getACL</LI>
+<LI>getClient</LI>
+<LI>getClientConfig</LI>
+<LI>getConnectionConfig</LI>
+<LI>getDBMSName</LI>
+<LI>getDefaultACL</LI>
+<LI>getDMCLSessionId</LI>
+<LI>getDocbaseConfig</LI>
+<LI>getDocbaseId</LI>
+<LI>getDocbaseName</LI>
+<LI>getDocbaseOwnerName</LI>
+<LI>getDocbaseScope</LI>
+<LI>getDocbrokerMap</LI>
+<LI>getEvents</LI>
+<LI>getFolderByPath</LI>
+<LI>getFormat</LI>
+<LI>getGroup</LI>
+<LI>getIdByQualification</LI>
+<LI>getLastCollection</LI>
+<LI>getLoginInfo</LI>
+<LI>getLoginTicket</LI>
+<LI>getLoginUserName</LI>
+<LI>getMessage</LI>
+<LI>getObject</LI>
+<LI>getObjectByPath</LI>
+<LI>getObjectByQualification</LI>
+<LI>getObjectWithType</LI>
+<LI>getRelationType</LI>
+<LI>getRunnableProcesses</LI>
+<LI>getSecurityMode</LI>
+<LI>getServerConfig</LI>
+<LI>getServerMap</LI>
+<LI>getServerVersion</LI>
+<LI>getSessionConfig</LI>
+<LI>getSessionId</LI>
+<LI>getTasks</LI>
+<LI>getType</LI>
+<LI>getTypeDescription</LI>
+<LI>getUser</LI>
+<LI>getUserByOSName</LI>
+<LI>getVersionTreeLabels</LI>
+<LI>hasEvents</LI>
+<LI>isACLDocbase</LI>
+<LI>isAdopted</LI>
+<LI>isConnected</LI>
+<LI>isRemote</LI>
+<LI>isShared</LI>
+<LI>lock</LI>
+<LI>newObject</LI>
+<LI>newObjectWithType</LI>
+<LI>newWorkflowBuilder</LI>
+<LI>purgeLocalFiles</LI>
+<LI>reInit</LI>
+<LI>resolveAlias</LI>
+<LI>reStart</LI>
+<LI>restore</LI>
+<LI>sendToDistributionList</LI>
+<LI>setBatchHint</LI>
+<LI>setDocbaseScope</LI>
+<LI>setDocbaseScopeById</LI>
+<LI>shutdown</LI>
+<LI>traceDMCL</LI>
+<LI>unlock</LI>
+</UL><FONT SIZE=-1><A HREF='#top'>[top]</A></FONT><HR><P>
+<A NAME='IDfSysObject.pm'>
+<H2>IDfSysObject.pm</H2>
+<H3>package: IDfSysObject</H3><UL>
+<LI>addNote</LI>
+<LI>addReference</LI>
+<LI>addRendition</LI>
+<LI>addRenditionEx</LI>
+<LI>appendContent</LI>
+<LI>appendFile</LI>
+<LI>appendPart</LI>
+<LI>areAttibutesModifiable</LI>
+<LI>assemble</LI>
+<LI>asVirtualDocument</LI>
+<LI>attachPolicy</LI>
+<LI>bindFile</LI>
+<LI>branch</LI>
+<LI>cancelCheckout</LI>
+<LI>cancelCheckoutEx</LI>
+<LI>cancelScheduledDemote</LI>
+<LI>cancelScheduledPromote</LI>
+<LI>cancelScheduledResume</LI>
+<LI>cancelScheduledSuspend</LI>
+<LI>canDemote</LI>
+<LI>canPromote</LI>
+<LI>canResume</LI>
+<LI>canSuspend</LI>
+<LI>checkin</LI>
+<LI>checkinEx</LI>
+<LI>checkout</LI>
+<LI>checkoutEx</LI>
+<LI>demote</LI>
+<LI>destroyAllVersions</LI>
+<LI>detachPolicy</LI>
+<LI>disassemble</LI>
+<LI>freeze</LI>
+<LI>getAccessDate</LI>
+<LI>getAccessorCount</LI>
+<LI>getAccessorName</LI>
+<LI>getAccessorPermit</LI>
+<LI>getAccessorXPermit</LI>
+<LI>getAccessorXPermitNames</LI>
+<LI>getACL</LI>
+<LI>getACLDomain</LI>
+<LI>getACLName</LI>
+<LI>getAclRefValid</LI>
+<LI>getAliasSet</LI>
+<LI>getAliasSetId</LI>
+<LI>getAntecedentId</LI>
+<LI>getApplicationType</LI>
+<LI>getAssembledFromId</LI>
+<LI>getAuthors</LI>
+<LI>getAuthorsCount</LI>
+<LI>getBranchCount</LI>
+<LI>getCabinetId</LI>
+<LI>getChronicleId</LI>
+<LI>getCollectionForContent</LI>
+<LI>getComponentId</LI>
+<LI>getComponentIdCount</LI>
+<LI>getCompoundArchitecture</LI>
+<LI>getContainId</LI>
+<LI>getContainIdCount</LI>
+<LI>getContent</LI>
+<LI>getContentEx</LI>
+<LI>getContentsId</LI>
+<LI>getContentSize</LI>
+<LI>getContentState</LI>
+<LI>getContentStateCount</LI>
+<LI>getContentType</LI>
+<LI>getCreationDate</LI>
+<LI>getCreatorName</LI>
+<LI>getCurrentState</LI>
+<LI>getCurrentStateName</LI>
+<LI>getDirectDescendant</LI>
+<LI>getExceptionStateName</LI>
+<LI>getFile</LI>
+<LI>getFileEx</LI>
+<LI>getFolderId</LI>
+<LI>getFolderIdCount</LI>
+<LI>getFormat</LI>
+<LI>getFrozenAssemblyCount</LI>
+<LI>getFullText</LI>
+<LI>getGroupName</LI>
+<LI>getGroupPermit</LI>
+<LI>getHasEvents</LI>
+<LI>getHasFolder</LI>
+<LI>getHasFrozenAssembly</LI>
+<LI>getImplicitVersionLabel</LI>
+<LI>getKeywords</LI>
+<LI>getKeywordsCount</LI>
+<LI>getLatestFlag</LI>
+<LI>getLinkCount</LI>
+<LI>getLinkHighCount</LI>
+<LI>getLocations</LI>
+<LI>getLockDate</LI>
+<LI>getLockMachine</LI>
+<LI>getLockOwner</LI>
+<LI>getLogEntry</LI>
+<LI>getMasterDocbase</LI>
+<LI>getModifier</LI>
+<LI>getModifyDate</LI>
+<LI>getNextStateName</LI>
+<LI>getObjectName</LI>
+<LI>getOwnerName</LI>
+<LI>getOwnerPermit</LI>
+<LI>getPageCount</LI>
+<LI>getPath</LI>
+<LI>getPermit</LI>
+<LI>getPermitEx</LI>
+<LI>getPolicyId</LI>
+<LI>getPolicyName</LI>
+<LI>getPreviousStateName</LI>
+<LI>getReferenceCount</LI>
+<LI>getRemoteId</LI>
+<LI>getRenditions</LI>
+<LI>getResolutionLabel</LI>
+<LI>getResumeState</LI>
+<LI>getResumeStateName</LI>
+<LI>getRouters</LI>
+<LI>getStatus</LI>
+<LI>getStorageType</LI>
+<LI>getSubject</LI>
+<LI>getTitle</LI>
+<LI>getTypeName</LI>
+<LI>getVersionLabel</LI>
+<LI>getVersionLabelCount</LI>
+<LI>getVersionPolicy</LI>
+<LI>getVersions</LI>
+<LI>getWorkflows</LI>
+<LI>getWorldPermit</LI>
+<LI>getXPermit</LI>
+<LI>getXPermitList</LI>
+<LI>getXPermitNames</LI>
+<LI>grant</LI>
+<LI>hasPermission</LI>
+<LI>insertContent</LI>
+<LI>insertFile</LI>
+<LI>insertPart</LI>
+<LI>isArchived</LI>
+<LI>isCheckedOut</LI>
+<LI>isCheckedOutBy</LI>
+<LI>isFrozen</LI>
+<LI>isHidden</LI>
+<LI>isImmutable</LI>
+<LI>isLinkResolved</LI>
+<LI>isPublic</LI>
+<LI>isReference</LI>
+<LI>isSuspended</LI>
+<LI>isVirtualDocument</LI>
+<LI>link</LI>
+<LI>mark</LI>
+<LI>mount</LI>
+<LI>print</LI>
+<LI>promote</LI>
+<LI>prune</LI>
+<LI>queue</LI>
+<LI>refreshReference</LI>
+<LI>registerEvent</LI>
+<LI>removeContent</LI>
+<LI>removeNote</LI>
+<LI>removePart</LI>
+<LI>removeRendition</LI>
+<LI>removeRenditionEx</LI>
+<LI>resolveAlias</LI>
+<LI>resume</LI>
+<LI>revertACL</LI>
+<LI>revoke</LI>
+<LI>saveAsNew</LI>
+<LI>saveLock</LI>
+<LI>scheduleDemote</LI>
+<LI>schedulePromote</LI>
+<LI>scheduleResume</LI>
+<LI>scheduleSuspend</LI>
+<LI>setACL</LI>
+<LI>setACLDomain</LI>
+<LI>setACLName</LI>
+<LI>setApplicationType</LI>
+<LI>setArchived</LI>
+<LI>setAuthors</LI>
+<LI>setCompoundArchitecture</LI>
+<LI>setContent</LI>
+<LI>setContentEx</LI>
+<LI>setContentType</LI>
+<LI>setFile</LI>
+<LI>setFileEx</LI>
+<LI>setFullText</LI>
+<LI>setGroupName</LI>
+<LI>setGroupPermit</LI>
+<LI>setHidden</LI>
+<LI>setIsVirtualDocument</LI>
+<LI>setKeywords</LI>
+<LI>setLinkResolved</LI>
+<LI>setLogEntry</LI>
+<LI>setObjectName</LI>
+<LI>setOwnerName</LI>
+<LI>setOwnerPermit</LI>
+<LI>setPath</LI>
+<LI>setResolutionLabel</LI>
+<LI>setStatus</LI>
+<LI>setStorageType</LI>
+<LI>setSubject</LI>
+<LI>setTitle</LI>
+<LI>setWorldPermit</LI>
+<LI>suspend</LI>
+<LI>unfreeze</LI>
+<LI>unlink</LI>
+<LI>unmark</LI>
+<LI>unRegisterEvent</LI>
+<LI>updatePart</LI>
+<LI>useACL</LI>
+</UL><FONT SIZE=-1><A HREF='#top'>[top]</A></FONT><HR><P>
+<A NAME='IDfTypedObject.pm'>
+<H2>IDfTypedObject.pm</H2>
+<H3>package: IDfTypedObject</H3><UL>
+<LI>appendBoolean</LI>
+<LI>appendDouble</LI>
+<LI>appendId</LI>
+<LI>appendInt</LI>
+<LI>appendString</LI>
+<LI>appendTime</LI>
+<LI>appendValue</LI>
+<LI>dump</LI>
+<LI>enumAttrs</LI>
+<LI>findAttrIndex</LI>
+<LI>findBoolean</LI>
+<LI>findDouble</LI>
+<LI>findId</LI>
+<LI>findInt</LI>
+<LI>findString</LI>
+<LI>findTime</LI>
+<LI>findValue</LI>
+<LI>getAllRepeatingStrings</LI>
+<LI>getAttr</LI>
+<LI>getAttrCount</LI>
+<LI>getAttrDataType</LI>
+<LI>getBoolean</LI>
+<LI>getDouble</LI>
+<LI>getId</LI>
+<LI>getInt</LI>
+<LI>getObjectId</LI>
+<LI>getRepeatingBoolean</LI>
+<LI>getRepeatingDouble</LI>
+<LI>getRepeatingId</LI>
+<LI>getRepeatingInt</LI>
+<LI>getRepeatingString</LI>
+<LI>getRepeatingTime</LI>
+<LI>getRepeatingValue</LI>
+<LI>getSession</LI>
+<LI>getString</LI>
+<LI>getTime</LI>
+<LI>getValue</LI>
+<LI>getValueAt</LI>
+<LI>getValueCount</LI>
+<LI>hasAttr</LI>
+<LI>insertBoolean</LI>
+<LI>insertDouble</LI>
+<LI>insertId</LI>
+<LI>insertInt</LI>
+<LI>insertString</LI>
+<LI>insertTime</LI>
+<LI>insertValue</LI>
+<LI>isAttrRepeating</LI>
+<LI>remove</LI>
+<LI>removeAll</LI>
+<LI>setBoolean</LI>
+<LI>setDouble</LI>
+<LI>setId</LI>
+<LI>setInt</LI>
+<LI>setRepeatingBoolean</LI>
+<LI>setRepeatingDouble</LI>
+<LI>setRepeatingId</LI>
+<LI>setRepeatingInt</LI>
+<LI>setRepeatingString</LI>
+<LI>setRepeatingTime</LI>
+<LI>setRepeatingValue</LI>
+<LI>setString</LI>
+<LI>setTime</LI>
+<LI>setValue</LI>
+<LI>truncate</LI>
+</UL><FONT SIZE=-1><A HREF='#top'>[top]</A></FONT><HR><P>

@@ -1,0 +1,161 @@
+DFC README
+==========
+Pre-Alpha release
+November 17, 2000
+
+QUICK INSTALL
+=============
+1. Install Documentum Desktop Client 4.1
+2. Install a JDK (1.3 prefered)
+3. Install JPL
+4. Install DFC.pm and associated files.
+
+ABSTRACT
+=========
+DFC.pm is a Perl 5 module that enables the use of Documentum's Foundation
+Classes (DFC) in Perl.
+
+1. JPL
+======
+JPL (Java-Perl Lingo) is a Perl 5 module that enables the use of Java classes
+in Perl.  JPL is a critical part of DFC.pm since the DFC is a collection of
+Java classes.  All interaction with the DFC is through JPL.
+
+1.1 GET JPL
+===========
+The latest version of the JPL module can be obtained from the CVS archive.
+Free CVS clients can be downloaded from www.cyclic.com.  The latest version
+of JPL in CVS has been updated to operate with Sun's JDK 1.3.  If you don't
+have a Java Developer's Kit (JDK) installed, download one from www.javasoft.com.
+
+You can check out the latest version of JPL with the following CVS settings:
+
+  set CVSROOT=:pserver:anoncvs@as220.org:/home/cvsroot
+  cvs login    # use blank password
+  cvs checkout jpl
+
+You can check out the previous version of JPL with the following CVS settings:
+
+  export CVSROOT=:pserver:anoncvs@as220.org:/home/cvsroot
+  cvs login    # use blank password
+  cvs checkout -rsnap-10212000 jpl
+
+1.2 INSTALL JPL
+===============
+Follow the directions packaged with JPL to install it.  We are particularlly
+interested in the JNI (Java Native Interface) portion of the installation.
+I will warn you, this install is not trivial!  Make sure you set jpldebug = 0
+in the JNI.xs file or you will get lots of debug stuff on STDOUT.
+
+2. DM_CASTER
+============
+The dm_Caster java file included with DFC.pm must be compiled and installed in
+the same directory as DFC.pm.  To compile it, type:
+
+  javac dm_Caster
+
+Examine this java file -- you may need/want to modify it.  It's purpose is to cast
+IDfPersistentObjects to subtypes.  For example, to create a new dm_document, the
+DFC forces you to create a DfPersistentObject and then cast it to an IDfDocument.
+
+In Java:
+
+  IDfDocument document = null;
+  document =(IDfDocument)session.newObject("dm_document");
+  document.setObjectName( "doc1" );
+
+This type of casting is not possible in Perl, yet is necessary because the setObjectName
+method is only available through the IDfDocument interface.  session.newObject() returns
+an IDfPersistentObject by default, regardless of what object type you pass to it.
+
+In Perl:
+
+  $doc = $session->newObject("dm_document");
+  $doc = castToIDfDocument($doc);
+  $doc->setObjectName("doc1");
+
+castToIDfDocument is a method of dm_Caster.  A dm_Caster is instantiate automatically by
+DFC.pm and makes all of its "cast" methods avialble through the dm_Caster object.  This is
+awkward but mirrors the java implementation of the DFC.
+
+3. DFC.PM
+=========
+The DFC.pm consists of 14 perl module (.pm) files.
+
+3.1 INSTALL DFC.PM
+==================
+Copy all of the DFC.pm files into the same directory with your script.  After this alpha
+test, the module will have a more formal install routine and most likely live in the Db
+namespace.  Until that time, just keep the modules and the java class file together with
+your script.
+
+3.2 USING DFC.PM
+================
+To use DFC.PM, simply use it in your Perl program.
+
+Example:
+
+  use DFC;
+  $dfclient = DfClient->new();
+  $client = $dfclient->getLocalClient();
+
+  $logininfo = DfLoginInfo->new();
+  $logininfo->setUser('user');
+  $logininfo->setPassword('password');
+  $logininfo->setDomain('DOMAIN');
+
+  $DOCBASE="X";
+  $session = $client->newSession($DOCBASE,$logininfo);
+
+  $query = DfQuery->new();
+  $query->setDQL("select object_name from dm_document where owner_name = user");
+  $col = $query->execute($session,0);
+  while ($col->next()) {
+      my $row = $col->getTypedObject();
+      print $row->getString("object_name") . "\n";
+  }
+
+  $col->close();
+  $session->disconnect();
+
+3.3 OBJECT/METHOD SUMMARY
+=========================
+A summary of the objects and methods implemented by this version of DFC.pm can
+be found in the perl-dfc.html file included with this archive.  This module was
+created with DFC v4.1.0.59.  Only a subset of all available classes and methods
+have been implemented.  More will follow as I have time or need arises.  If you
+would like to contribute some, please go ahead.  Looking through the module code
+and the DFC reference material, you should be able to figure it out fairliy quickly.
+
+3.4 KNOWN ISSUES
+================
+The only real issue I know of right now is the inability to catch the Java exceptions
+thrown by Documentum.  I'm working on this but it might take a change to JPL to
+actually make it happen.
+
+4.0 SUPPORT
+===========
+DFC.pm is authored and support by me, M. Scott Roth (michael.s.roth@saic.com).  Please
+feel free to contact me.
+
+5.0 ARCHIVE CONTENTS
+====================
+DFC.pm
+DfClient.pm
+DfQuery.pm
+DfLoginInfo.pm
+
+IDfTypedObject.pm
+IDfPersistentObject.pm
+IDfSysObject.pm
+IDfQuery.pm
+IDfCollection.pm
+IDfSession.pm
+IDfLoginInfo.pm
+IDfClient.pm
+IDfAttr.pm
+
+dm_Caster.java
+README
+dfc-idql.pl
+test.pl
