@@ -1,7 +1,7 @@
 DFC README
 ==========
-Pre-Alpha release
-November 17, 2000
+Alpha Release 2
+December 4, 2000
 
 QUICK INSTALL
 =============
@@ -23,6 +23,9 @@ Java classes.  All interaction with the DFC is through JPL.
 
 1.1 GET JPL
 ===========
+
+1.1.1  CVS
+==========
 The latest version of the JPL module can be obtained from the CVS archive.
 Free CVS clients can be downloaded from www.cyclic.com.  The latest version
 of JPL in CVS has been updated to operate with Sun's JDK 1.3.  If you don't
@@ -40,6 +43,18 @@ You can check out the previous version of JPL with the following CVS settings:
   cvs login    # use blank password
   cvs checkout -rsnap-10212000 jpl
 
+1.1.2 PPM VERSION
+=================
+I have created a PPM installable version of JPL and hosted it at:
+
+http://www.erols.com/theroths/perl_stuff.html
+
+This version was created on NT 4, using JDK 1.3 and Perl 5.6.  You can install it
+by typing:
+
+  ppm install JPL-Class.ppd
+  ppm install JNI.ppd
+  
 1.2 INSTALL JPL
 ===============
 Follow the directions packaged with JPL to install it.  We are particularlly
@@ -80,15 +95,16 @@ awkward but mirrors the java implementation of the DFC.
 
 3. DFC.PM
 =========
-The DFC.pm consists of 14 perl module (.pm) files.
+The DFC.pm consists of 86 perl module (.pm) files.
 
 3.1 INSTALL DFC.PM
 ==================
-Copy all of the DFC.pm files into the same directory with your script.  After this alpha
-test, the module will have a more formal install routine and most likely live in the Db
-namespace.  Until that time, just keep the modules and the java class file together with
-your script.
-
+After installing JPL, to the usual to install Db::DFC:
+  perl makefile.pl
+  nmake
+  nmake test  (** you will need to edit the test script to insert your Docbase, user and password)
+  nmake install
+  
 3.2 USING DFC.PM
 ================
 To use DFC.PM, simply use it in your Perl program.
@@ -122,10 +138,7 @@ Example:
 =========================
 A summary of the objects and methods implemented by this version of DFC.pm can
 be found in the perl-dfc.html file included with this archive.  This module was
-created with DFC v4.1.0.59.  Only a subset of all available classes and methods
-have been implemented.  More will follow as I have time or need arises.  If you
-would like to contribute some, please go ahead.  Looking through the module code
-and the DFC reference material, you should be able to figure it out fairliy quickly.
+created with DFC v4.1.0.59.  Most classes and methods have been implemented.  
 
 3.4 KNOWN ISSUES
 ================
@@ -138,24 +151,3 @@ actually make it happen.
 DFC.pm is authored and support by me, M. Scott Roth (michael.s.roth@saic.com).  Please
 feel free to contact me.
 
-5.0 ARCHIVE CONTENTS
-====================
-DFC.pm
-DfClient.pm
-DfQuery.pm
-DfLoginInfo.pm
-
-IDfTypedObject.pm
-IDfPersistentObject.pm
-IDfSysObject.pm
-IDfQuery.pm
-IDfCollection.pm
-IDfSession.pm
-IDfLoginInfo.pm
-IDfClient.pm
-IDfAttr.pm
-
-dm_Caster.java
-README
-dfc-idql.pl
-test.pl

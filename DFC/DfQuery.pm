@@ -4,6 +4,7 @@
 # ------------------------------------------------------------------- #
 package DfQuery;
 
+
 use JPL::AutoLoader;
 use JPL::Class 'com::documentum::fc::client::DfQuery';
 use JPL::Class 'com::documentum::fc::client::IDfQuery';

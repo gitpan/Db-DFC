@@ -4,6 +4,7 @@
 # ------------------------------------------------------------------- #
 package IDfSession;
 
+
 use JPL::AutoLoader;
 use JPL::Class 'com::documentum::fc::client::IDfSession';
 use JPL::Class 'com::documentum::fc::common::IDfId';
@@ -20,6 +21,14 @@ use JPL::Class 'com::documentum::fc::client::IDfGroup';
 use JPL::Class 'com::documentum::fc::client::IDfTypedObject';
 use JPL::Class 'com::documentum::fc::client::IDfUser';
 use JPL::Class 'com::documentum::fc::client::IDfVersionTreeLabels';
+
+
+use constant DF_TASKS                    => 1;
+use constant DF_NOTIFICATIONS            => 2;
+use constant DF_TASKS_AND_NOTIFICATIONS  => 3;
+use constant DF_EXEC                     => 2;
+use constant DF_GET                      => 0;
+use constant DF_SET                      => 1;
 
 
 #sub new {

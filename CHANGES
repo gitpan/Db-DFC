@@ -1,0 +1,108 @@
+VERSION 0.1 - 2000-11-17
+------------------------
+
+Classes and Interfaces implemented:
+
+DfClient
+DfClientX**
+DfException**
+DfLoginInfo
+DfQuery
+IDfAttr
+IDfClient
+IDfCollection
+IDfException**
+IDfLoginInfo
+IDfPersistentObject
+IDfQuery
+IDfSession
+IDfSysObject
+IDfTypedObject
+** = incomplete
+
+VERSION 0.2 - 2000-??-??
+------------------------
+
+Classes and Interfaces add:
+
+DfException**
+DfId
+DfList
+DfProperties
+DfTime
+IDfDocument
+IDfId
+IDfFolder
+IDfUser
+IDfFormat
+IDfACL
+IDfActivity
+IDfAliasSet
+IDfAssembly
+IDfCancelCheckoutNode
+IDfCancelCheckoutOperation
+IDfChangeDescription
+IDfCheckedOutObject
+IDfCheckinNode
+IDfCheckinOperation
+IDfCheckoutNode
+IDfCheckoutOperation
+IDfClientRegistry
+IDfClientRegistryObject
+IDfClientX
+IDfContainment
+IDfCopyNode
+IDfCopyOperation
+IDfDeleteNode
+IDfDeleteOperation
+IDfDocbaseMap
+IDfDocument
+IDfEnumeration
+IDfException**
+IDfExportNode
+IDfExportOperation
+IDfFormatRecognizer
+IDfGroup
+IDfImportNode
+IDfImportOperation
+IDfList
+IDfLocalObject
+IDfMoveNode
+IDfMoveOperation
+IDfOperation
+IDfOperationError
+IDfOperationMonitor
+IDfOperationNode
+IDfOperationPopulator
+IDfOperationStep
+IDfPackage
+IDfProcess
+IDfProperties
+IDfQueueItem
+IDfRegistry
+IDfRelation
+IDfRelationType
+IDfRouter
+IDfSearchable
+IDfTime
+IDfType
+IDfValidator
+IDfValue
+IDfValueAssistance
+IDfVDMNumberingScheme
+IDfVersionLabels
+IDfVersionPolicy
+IDfVirtualDocument
+IDfVirtualDocumentNode
+IDfWorkflow
+IDfWorkflowBuilder
+IDfWorkitem
+
+** = now complete
++ added constants
++ removed DfClientX and IDfClientX
+
+
+TO DO:
+* re-create Tools.pm in the DFC module
+* better test program

@@ -1,7 +1,13 @@
 #!/usr/local/bin/perl -w
 
-use DFC;
+BEGIN{ use Cwd;
+    unshift (@INC, './','../');
+}
+
+use Db::DFC;
 $JPL::DEBUG=1;
+
+$DOCBASE="media_X";
 
 $dfclient = DfClient->new();
 output ("dfclient = " . $dfclient);
@@ -15,17 +21,20 @@ output ("logininfo = " . $logininfo);
 $logininfo->setUser("dmadmin");
 output ("user = " . $logininfo->getUser());
 
-$logininfo->setPassword('dmadmin');
+$logininfo->setPassword('dmadmin4i');
 output ("password = " . $logininfo->getPassword());
 
-$logininfo->setDomain('WORKGROUP');
+$logininfo->setDomain('HERNDON-EMPIRE');
 output ("domain = " . $logininfo->getDomain());
 
 $login2 = DfLoginInfo->new($logininfo);
 output ("user from login2 = " . $login2->getUser());
 
-$DOCBASE="docbase";
 $session = $client->newSession($DOCBASE,$logininfo);
+if (JNI::ExceptionOccurred()) {
+    output (JNI::ExceptionDescribe());
+    JNI::ExceptionClear();
+}
 output ("session = " . $session);
 output ("RDBMS = " . $session->getDBMSName());
 

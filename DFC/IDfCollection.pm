@@ -5,9 +5,14 @@
 package IDfCollection;
 @ISA = (IDfTypedObject);
 
+
 use JPL::AutoLoader;
 use JPL::Class 'com::documentum::fc::client::IDfCollection';
 use JPL::Class 'com::documentum::fc::client::IDfTypedObject';
+
+
+use constant DF_READY_STATE     =>  1;
+use constant DF_CLOSED_STATE    =>  2;
 
 
 sub close {

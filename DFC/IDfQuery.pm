@@ -8,6 +8,13 @@ use JPL::AutoLoader;
 use JPL::Class 'com::documentum::fc::client::IDfQuery';
 use JPL::Class 'com.documentum.fc.client.IDfCollection';
 
+use constant DF_READ_QUERY      =>  0;
+use constant DF_QUERY           =>  1;
+use constant DF_CACHE_QUERY     =>  2;
+use constant DF_EXEC_QUERY      =>  3;
+use constant DF_EXECREAD_QUERY  =>  4;
+use constant DF_APPLY           =>  5;
+
 
 sub execute {
     my ($self,$session,$qtype) = @_;

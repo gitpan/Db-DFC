@@ -21,8 +21,12 @@ sub new {
         my $new = JPL::AutoLoader::getmeth('new',[],[]);
         $idflogininfo = com::documentum::fc::common::DfLoginInfo->$new();
     }
-    bless (\$idflogininfo,IDfLoginInfo);
-    return \$idflogininfo;
+    if ($idflogininfo) {
+        bless (\$idflogininfo,IDfLoginInfo);
+        return \$idflogininfo;
+    } else {
+        return undef;
+    }
 }
 
 
