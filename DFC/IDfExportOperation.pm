@@ -1,63 +1,109 @@
-# ------------------------------------------------------------------- #
-# IDfExportOperation
-# com.documentum.operations.IDfExportOperation
-# ------------------------------------------------------------------- #
+# ------------------------------------------------------------------ #
+# Db::DFC Version 0.4 -- Thu Feb 22 22:04:43 2001
+# (C) 2000-2001 M.S. Roth
+# 
+# IDfExportOperation (com.documentum.operations.IDfExportOperation)
+# ------------------------------------------------------------------ #
+
 package IDfExportOperation;
 @ISA = (IDfOperation);
 
-
 use JPL::AutoLoader;
 use JPL::Class 'com::documentum::operations::IDfExportOperation';
-use JPL::Class 'com::documentum::fc::common::IDfList';
+use JPL::Class 'com.documentum.fc.common.IDfList';
 
-
-use constant DONT_RECORD_IN_REGISTRY  =>    1;       # unknown
-use constant RECORD_AS_LOCAL_FILE_IN_REGISTRY => 2;  # unknown
-use constant RECORD_AS_VIEWED_FILE_IN_REGISTRY => 3; # unknown
-
-
-sub getDefaultDestinationDirectory {
-	my $self = shift;
-	my $getDefaultDestinationDirectory = JPL::AutoLoader::getmeth('getDefaultDestinationDirectory',[],['java.lang.String']);
-	return $$self->$getDefaultDestinationDirectory();
-}
+use constant DONT_RECORD_IN_REGISTRY => 0;
+use constant RECORD_AS_VIEWED_FILE_IN_REGISTRY => 1;
+use constant RECORD_AS_LOCAL_FILE_IN_REGISTRY => 2;
 
 sub getDestinationDirectory {
-	my $self = shift;
-	my $getDestinationDirectory = JPL::AutoLoader::getmeth('getDestinationDirectory',[],['java.lang.String']);
-	return $$self->$getDestinationDirectory();
+	## METHOD: java.lang.String getDestinationDirectory()
+    my $self = shift;
+    my $getDestinationDirectory = JPL::AutoLoader::getmeth('getDestinationDirectory',[],['java.lang.String']);
+    my $rv = "";
+    eval { $rv = $$self->$getDestinationDirectory(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
 }
 
-sub getObjects {
-	my $self = shift;
-	my $getObjects = JPL::AutoLoader::getmeth('getObjects',[],['com.documentum.fc.common.IDfList']);
-	my $tmp = $$self->$getObjects();
-	if ($tmp) {
-		bless(\$tmp,IDfList);
-		return \$tmp;
-	} else {
-		return undef;
-	}
-}
-
-sub getRecordInRegistry {
-	my $self = shift;
-	my $getRecordInRegistry = JPL::AutoLoader::getmeth('getRecordInRegistry',[],['int']);
-	return $$self->$getRecordInRegistry();
+sub getDefaultDestinationDirectory {
+	## METHOD: java.lang.String getDefaultDestinationDirectory()
+    my $self = shift;
+    my $getDefaultDestinationDirectory = JPL::AutoLoader::getmeth('getDefaultDestinationDirectory',[],['java.lang.String']);
+    my $rv = "";
+    eval { $rv = $$self->$getDefaultDestinationDirectory(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
 }
 
 sub setDestinationDirectory {
-	my ($self,$dirPath) = @_;
-	my $setDestinationDirectory = JPL::AutoLoader::getmeth('setDestinationDirectory',['java.lang.String'],[]);
-	return $$self->$setDestinationDirectory($dirPath);
+	## METHOD: void setDestinationDirectory(java.lang.String)
+    my ($self,$p0) = @_;
+    my $setDestinationDirectory = JPL::AutoLoader::getmeth('setDestinationDirectory',['java.lang.String'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$setDestinationDirectory($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub getObjects {
+	## METHOD: com.documentum.fc.common.IDfList getObjects()
+    my $self = shift;
+    my $getObjects = JPL::AutoLoader::getmeth('getObjects',[],['com.documentum.fc.common.IDfList']);
+    my $rv = "";
+    eval { $rv = $$self->$getObjects(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        bless (\$rv,IDfList);
+        return \$rv;
+    }
+}
+
+sub getRecordInRegistry {
+	## METHOD: int getRecordInRegistry()
+    my $self = shift;
+    my $getRecordInRegistry = JPL::AutoLoader::getmeth('getRecordInRegistry',[],['int']);
+    my $rv = "";
+    eval { $rv = $$self->$getRecordInRegistry(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
 }
 
 sub setRecordInRegistry {
-	my ($self,$registryRecordingPreference) = @_;
-	my $setRecordInRegistry = JPL::AutoLoader::getmeth('setRecordInRegistry',['int'],[]);
-	return $$self->$setRecordInRegistry($registryRecordingPreference);
+	## METHOD: void setRecordInRegistry(int)
+    my ($self,$p0) = @_;
+    my $setRecordInRegistry = JPL::AutoLoader::getmeth('setRecordInRegistry',['int'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$setRecordInRegistry($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
 }
 
 
 1;
-#__EOF__
+
+# ------------------------------------------------------------------ #
+#                                <SDG><
+# ------------------------------------------------------------------ #

@@ -1,103 +1,229 @@
-# ------------------------------------------------------------------- #
-# IDfFile
-# com.documentum.operations.IDfFile
-# ------------------------------------------------------------------- #
+# ------------------------------------------------------------------ #
+# Db::DFC Version 0.4 -- Thu Feb 22 22:04:43 2001
+# (C) 2000-2001 M.S. Roth
+# 
+# IDfFile (com.documentum.operations.IDfFile)
+# ------------------------------------------------------------------ #
+
 package IDfFile;
 
 use JPL::AutoLoader;
 use JPL::Class 'com::documentum::operations::IDfFile';
 
 
-sub canRead {
-	my $self = shift;
-	my $canRead = JPL::AutoLoader::getmeth('canRead',[],['boolean']);
-	return $$self->$canRead();
-}
-
-sub canWrite {
-	my $self = shift;
-	my $canWrite = JPL::AutoLoader::getmeth('canWrite',[],['boolean']);
-	return $$self->$canWrite();
-}
-
-sub deleteFile {
-	my $self = shift;
-	my $deleteFile = JPL::AutoLoader::getmeth('deleteFile',[],[]);
-	return $$self->$deleteFile();
-}
-
 sub equals {
-	my ($self,$fileSpec) = @_;
-	my $equals = JPL::AutoLoader::getmeth('equals',['java.lang.Object'],['boolean']);
-	return $$self->$equals($fileSpec);
-}
-
-sub exists {
-	my $self = shift;
-	my $exists = JPL::AutoLoader::getmeth('exists',[],['boolean']);
-	return $$self->$exists();
-}
-
-sub getDirectory {
-	my $self = shift;
-	my $getDirectory = JPL::AutoLoader::getmeth('getDirectory',[],['java.lang.String']);
-	return $$self->$getDirectory();
-}
-
-sub getExtension {
-	my $self = shift;
-	my $getExtension = JPL::AutoLoader::getmeth('getExtension',[],['java.lang.String']);
-	return $$self->$getExtension();
-}
-
-sub getFullPath {
-	my $self = shift;
-	my $getFullPath = JPL::AutoLoader::getmeth('getFullPath',[],['java.lang.String']);
-	return $$self->$getFullPath();
+	## METHOD: boolean equals(java.lang.Object)
+    my ($self,$p0) = @_;
+    my $equals = JPL::AutoLoader::getmeth('equals',['java.lang.Object'],['boolean']);
+    my $rv = "";
+    eval { $rv = $$self->$equals($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
 }
 
 sub getName {
-	my $self = shift;
-	my $getName = JPL::AutoLoader::getmeth('getName',[],['java.lang.String']);
-	return $$self->$getName();
-}
-
-sub getSeparator {
-	my $self = shift;
-	my $getSeparator = JPL::AutoLoader::getmeth('getSeparator',[],['java.lang.String']);
-	return $$self->$getSeparator();
-}
-
-sub renameTo {
-	my ($self,$newPath) = @_;
-	my $renameTo = JPL::AutoLoader::getmeth('renameTo',['java.lang.String'],[]);
-	return $$self->$renameTo($newPath);
-}
-
-sub setDirectory {
-	my ($self,$dirPath) = @_;
-	my $setDirectory = JPL::AutoLoader::getmeth('setDirectory',['java.lang.String'],[]);
-	return $$self->$setDirectory($dirPath);
-}
-
-sub setExtension {
-	my ($self,$newExtension) = @_;
-	my $setExtension = JPL::AutoLoader::getmeth('setExtension',['java.lang.String'],[]);
-	return $$self->$setExtension($newExtension);
-}
-
-sub setFullPath {
-	my ($self,$filePath) = @_;
-	my $setFullPath = JPL::AutoLoader::getmeth('setFullPath',['java.lang.String'],[]);
-	return $$self->$setFullPath($filePath);
+	## METHOD: java.lang.String getName()
+    my $self = shift;
+    my $getName = JPL::AutoLoader::getmeth('getName',[],['java.lang.String']);
+    my $rv = "";
+    eval { $rv = $$self->$getName(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
 }
 
 sub setName {
-	my ($self,$fileName) = @_;
-	my $setName = JPL::AutoLoader::getmeth('setName',['java.lang.String'],[]);
-	return $$self->$setName($fileName);
+	## METHOD: void setName(java.lang.String)
+    my ($self,$p0) = @_;
+    my $setName = JPL::AutoLoader::getmeth('setName',['java.lang.String'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$setName($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub exists {
+	## METHOD: boolean exists()
+    my $self = shift;
+    my $exists = JPL::AutoLoader::getmeth('exists',[],['boolean']);
+    my $rv = "";
+    eval { $rv = $$self->$exists(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub canRead {
+	## METHOD: boolean canRead()
+    my $self = shift;
+    my $canRead = JPL::AutoLoader::getmeth('canRead',[],['boolean']);
+    my $rv = "";
+    eval { $rv = $$self->$canRead(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub canWrite {
+	## METHOD: boolean canWrite()
+    my $self = shift;
+    my $canWrite = JPL::AutoLoader::getmeth('canWrite',[],['boolean']);
+    my $rv = "";
+    eval { $rv = $$self->$canWrite(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub renameTo {
+	## METHOD: void renameTo(java.lang.String)
+    my ($self,$p0) = @_;
+    my $renameTo = JPL::AutoLoader::getmeth('renameTo',['java.lang.String'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$renameTo($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub getSeparator {
+	## METHOD: java.lang.String getSeparator()
+    my $self = shift;
+    my $getSeparator = JPL::AutoLoader::getmeth('getSeparator',[],['java.lang.String']);
+    my $rv = "";
+    eval { $rv = $$self->$getSeparator(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub getDirectory {
+	## METHOD: java.lang.String getDirectory()
+    my $self = shift;
+    my $getDirectory = JPL::AutoLoader::getmeth('getDirectory',[],['java.lang.String']);
+    my $rv = "";
+    eval { $rv = $$self->$getDirectory(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub setDirectory {
+	## METHOD: void setDirectory(java.lang.String)
+    my ($self,$p0) = @_;
+    my $setDirectory = JPL::AutoLoader::getmeth('setDirectory',['java.lang.String'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$setDirectory($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub getFullPath {
+	## METHOD: java.lang.String getFullPath()
+    my $self = shift;
+    my $getFullPath = JPL::AutoLoader::getmeth('getFullPath',[],['java.lang.String']);
+    my $rv = "";
+    eval { $rv = $$self->$getFullPath(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub setFullPath {
+	## METHOD: void setFullPath(java.lang.String)
+    my ($self,$p0) = @_;
+    my $setFullPath = JPL::AutoLoader::getmeth('setFullPath',['java.lang.String'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$setFullPath($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub getExtension {
+	## METHOD: java.lang.String getExtension()
+    my $self = shift;
+    my $getExtension = JPL::AutoLoader::getmeth('getExtension',[],['java.lang.String']);
+    my $rv = "";
+    eval { $rv = $$self->$getExtension(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub setExtension {
+	## METHOD: void setExtension(java.lang.String)
+    my ($self,$p0) = @_;
+    my $setExtension = JPL::AutoLoader::getmeth('setExtension',['java.lang.String'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$setExtension($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub deleteFile {
+	## METHOD: void deleteFile()
+    my $self = shift;
+    my $deleteFile = JPL::AutoLoader::getmeth('deleteFile',[],[]);
+    my $rv = "";
+    eval { $rv = $$self->$deleteFile(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
 }
 
 
 1;
-#__EOF__
+
+# ------------------------------------------------------------------ #
+#                                <SDG><
+# ------------------------------------------------------------------ #

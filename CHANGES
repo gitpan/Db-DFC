@@ -1,108 +1,39 @@
-VERSION 0.1 - 2000-11-17
+VERSION 0.1 - 2000-11-16
 ------------------------
+    - basic objects and methods implemented
+    - proof of concept using JPL and dm_Caster
 
-Classes and Interfaces implemented:
 
-DfClient
-DfClientX**
-DfException**
-DfLoginInfo
-DfQuery
-IDfAttr
-IDfClient
-IDfCollection
-IDfException**
-IDfLoginInfo
-IDfPersistentObject
-IDfQuery
-IDfSession
-IDfSysObject
-IDfTypedObject
-** = incomplete
-
-VERSION 0.2 - 2000-??-??
+VERSION 0.2 - 2000-12-04
 ------------------------
-
-Classes and Interfaces add:
-
-DfException**
-DfId
-DfList
-DfProperties
-DfTime
-IDfDocument
-IDfId
-IDfFolder
-IDfUser
-IDfFormat
-IDfACL
-IDfActivity
-IDfAliasSet
-IDfAssembly
-IDfCancelCheckoutNode
-IDfCancelCheckoutOperation
-IDfChangeDescription
-IDfCheckedOutObject
-IDfCheckinNode
-IDfCheckinOperation
-IDfCheckoutNode
-IDfCheckoutOperation
-IDfClientRegistry
-IDfClientRegistryObject
-IDfClientX
-IDfContainment
-IDfCopyNode
-IDfCopyOperation
-IDfDeleteNode
-IDfDeleteOperation
-IDfDocbaseMap
-IDfDocument
-IDfEnumeration
-IDfException**
-IDfExportNode
-IDfExportOperation
-IDfFormatRecognizer
-IDfGroup
-IDfImportNode
-IDfImportOperation
-IDfList
-IDfLocalObject
-IDfMoveNode
-IDfMoveOperation
-IDfOperation
-IDfOperationError
-IDfOperationMonitor
-IDfOperationNode
-IDfOperationPopulator
-IDfOperationStep
-IDfPackage
-IDfProcess
-IDfProperties
-IDfQueueItem
-IDfRegistry
-IDfRelation
-IDfRelationType
-IDfRouter
-IDfSearchable
-IDfTime
-IDfType
-IDfValidator
-IDfValue
-IDfValueAssistance
-IDfVDMNumberingScheme
-IDfVersionLabels
-IDfVersionPolicy
-IDfVirtualDocument
-IDfVirtualDocumentNode
-IDfWorkflow
-IDfWorkflowBuilder
-IDfWorkitem
-
-** = now complete
-+ added constants
-+ removed DfClientX and IDfClientX
+    - most functional classes and methods implemented
+    - much more complete
+    - module files created automatically by Perl script
+      from C++ header files    
 
 
-TO DO:
-* re-create Tools.pm in the DFC module
-* better test program
+VERSION 0.3 - 2001-01 (not released)
+------------------------
+    - complete implementation except IDfRegistry objects and
+      methods, and odd object constructors
+    - modules automatically generated from DFC class files by
+      Java and Perl
+    - Java Exceptions reported
+    - file hierarchy imposed
+
+VERSION 0.4 - 2001-02-27
+------------------------
+    - most object constructors implemented
+    - dm_Caster changed to dm_JCast
+    - OO imposed in DFC.pm
+    - install and test scripts improved (fixed)
+    - Java Exceptions trapped
+    - POD
+    
+    
+TODO
+----
+    - documentation
+    - more complete test script    
+    - more examples
+    

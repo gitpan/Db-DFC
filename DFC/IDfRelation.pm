@@ -1,149 +1,278 @@
-# ------------------------------------------------------------------- #
-# IDfRelation
-# com.documentum.fc.client.IDfRelation
-# ------------------------------------------------------------------- #
+# ------------------------------------------------------------------ #
+# Db::DFC Version 0.4 -- Thu Feb 22 22:04:43 2001
+# (C) 2000-2001 M.S. Roth
+# 
+# IDfRelation (com.documentum.fc.client.IDfRelation)
+# ------------------------------------------------------------------ #
+
 package IDfRelation;
 @ISA = (IDfPersistentObject);
 
-
 use JPL::AutoLoader;
 use JPL::Class 'com::documentum::fc::client::IDfRelation';
-use JPL::Class 'com::documentum::fc::common::IDfId';
-use JPL::Class 'com::documentum::fc::common::IDfTime';
+use JPL::Class 'com.documentum.fc.common.IDfId';
+use JPL::Class 'com.documentum.fc.common.IDfTime';
 
-
-sub getChildId {
-	my $self = shift;
-	my $getChildId = JPL::AutoLoader::getmeth('getChildId',[],['com.documentum.fc.common.IDfId']);
-	my $tmp = $$self->$getChildId();
-	if ($tmp) {
-		bless(\$tmp,IDfId);
-		return \$tmp;
-	} else {
-		return undef;
-	}
-}
-
-sub getChildLabel {
-	my $self = shift;
-	my $getChildLabel = JPL::AutoLoader::getmeth('getChildLabel',[],['java.lang.String']);
-	return $$self->$getChildLabel();
-}
 
 sub getDescription {
-	my $self = shift;
-	my $getDescription = JPL::AutoLoader::getmeth('getDescription',[],['java.lang.String']);
-	return $$self->$getDescription();
-}
-
-sub getEffectiveDate {
-	my $self = shift;
-	my $getEffectiveDate = JPL::AutoLoader::getmeth('getEffectiveDate',[],['com.documentum.fc.common.IDfTime']);
-	my $tmp = $$self->$getEffectiveDate();
-	if ($tmp) {
-		bless(\$tmp,IDfTime);
-		return \$tmp;
-	} else {
-		return undef;
-	}
-}
-
-sub getExpirationDate {
-	my $self = shift;
-	my $getExpirationDate = JPL::AutoLoader::getmeth('getExpirationDate',[],['com.documentum.fc.common.IDfTime']);
-	my $tmp = $$self->$getExpirationDate();
-	if ($tmp) {
-		bless(\$tmp,IDfTime);
-		return \$tmp;
-	} else {
-		return undef;
-	}
-}
-
-sub getOrderNumber {
-	my $self = shift;
-	my $getOrderNumber = JPL::AutoLoader::getmeth('getOrderNumber',[],['int']);
-	return $$self->$getOrderNumber();
-}
-
-sub getParentId {
-	my $self = shift;
-	my $getParentId = JPL::AutoLoader::getmeth('getParentId',[],['com.documentum.fc.common.IDfId']);
-	my $tmp = $$self->$getParentId();
-	if ($tmp) {
-		bless(\$tmp,IDfId);
-		return \$tmp;
-	} else {
-		return undef;
-	}
-}
-
-sub getPermanentLink {
-	my $self = shift;
-	my $getPermanentLink = JPL::AutoLoader::getmeth('getPermanentLink',[],['boolean']);
-	return $$self->$getPermanentLink();
-}
-
-sub getRelationName {
-	my $self = shift;
-	my $getRelationName = JPL::AutoLoader::getmeth('getRelationName',[],['java.lang.String']);
-	return $$self->$getRelationName();
-}
-
-sub setChildId {
-	my ($self,$child) = @_;
-	my $setChildId = JPL::AutoLoader::getmeth('setChildId',['com.documentum.fc.common.IDfId'],[]);
-	return $$self->$setChildId($$child);
-}
-
-sub setChildLabel {
-	my ($self,$label) = @_;
-	my $setChildLabel = JPL::AutoLoader::getmeth('setChildLabel',['java.lang.String'],[]);
-	return $$self->$setChildLabel($label);
+	## METHOD: java.lang.String getDescription()
+    my $self = shift;
+    my $getDescription = JPL::AutoLoader::getmeth('getDescription',[],['java.lang.String']);
+    my $rv = "";
+    eval { $rv = $$self->$getDescription(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
 }
 
 sub setDescription {
-	my ($self,$desc) = @_;
-	my $setDescription = JPL::AutoLoader::getmeth('setDescription',['java.lang.String'],[]);
-	return $$self->$setDescription($desc);
+	## METHOD: void setDescription(java.lang.String)
+    my ($self,$p0) = @_;
+    my $setDescription = JPL::AutoLoader::getmeth('setDescription',['java.lang.String'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$setDescription($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
 }
 
-sub setEffectiveDate {
-	my ($self,$date) = @_;
-	my $setEffectiveDate = JPL::AutoLoader::getmeth('setEffectiveDate',['com.documentum.fc.common.IDfTime'],[]);
-	return $$self->$setEffectiveDate($$date);
-}
-
-sub setExpirationDate {
-	my ($self,$date) = @_;
-	my $setExpirationDate = JPL::AutoLoader::getmeth('setExpirationDate',['com.documentum.fc.commonIDfTime'],[]);
-	return $$self->$setExpirationDate($$date);
-}
-
-sub setOrderNumber {
-	my ($self,$no) = @_;
-	my $setOrderNumber = JPL::AutoLoader::getmeth('setOrderNumber',['int'],[]);
-	return $$self->$setOrderNumber($no);
+sub getParentId {
+	## METHOD: com.documentum.fc.common.IDfId getParentId()
+    my $self = shift;
+    my $getParentId = JPL::AutoLoader::getmeth('getParentId',[],['com.documentum.fc.common.IDfId']);
+    my $rv = "";
+    eval { $rv = $$self->$getParentId(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        bless (\$rv,IDfId);
+        return \$rv;
+    }
 }
 
 sub setParentId {
-	my ($self,$parent) = @_;
-	my $setParentId = JPL::AutoLoader::getmeth('setParentId',['com.documentum.fc.common.IDfId'],[]);
-	return $$self->$setParentId($$parent);
+	## METHOD: void setParentId(com.documentum.fc.common.IDfId)
+    my ($self,$p0) = @_;
+    my $setParentId = JPL::AutoLoader::getmeth('setParentId',['com.documentum.fc.common.IDfId'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$setParentId($$p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
 }
 
-sub setPermanentLink {
-	my ($self,$val) = @_;
-	my $setPermanentLink = JPL::AutoLoader::getmeth('setPermanentLink',['boolean'],[]);
-	return $$self->$setPermanentLink($val);
+sub getOrderNumber {
+	## METHOD: int getOrderNumber()
+    my $self = shift;
+    my $getOrderNumber = JPL::AutoLoader::getmeth('getOrderNumber',[],['int']);
+    my $rv = "";
+    eval { $rv = $$self->$getOrderNumber(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub setOrderNumber {
+	## METHOD: void setOrderNumber(int)
+    my ($self,$p0) = @_;
+    my $setOrderNumber = JPL::AutoLoader::getmeth('setOrderNumber',['int'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$setOrderNumber($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub getRelationName {
+	## METHOD: java.lang.String getRelationName()
+    my $self = shift;
+    my $getRelationName = JPL::AutoLoader::getmeth('getRelationName',[],['java.lang.String']);
+    my $rv = "";
+    eval { $rv = $$self->$getRelationName(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
 }
 
 sub setRelationName {
-	my ($self,$rName) = @_;
-	my $setRelationName = JPL::AutoLoader::getmeth('setRelationName',['java.lang.String'],[]);
-	return $$self->$setRelationName($rName);
+	## METHOD: void setRelationName(java.lang.String)
+    my ($self,$p0) = @_;
+    my $setRelationName = JPL::AutoLoader::getmeth('setRelationName',['java.lang.String'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$setRelationName($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub getEffectiveDate {
+	## METHOD: com.documentum.fc.common.IDfTime getEffectiveDate()
+    my $self = shift;
+    my $getEffectiveDate = JPL::AutoLoader::getmeth('getEffectiveDate',[],['com.documentum.fc.common.IDfTime']);
+    my $rv = "";
+    eval { $rv = $$self->$getEffectiveDate(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        bless (\$rv,IDfTime);
+        return \$rv;
+    }
+}
+
+sub getExpirationDate {
+	## METHOD: com.documentum.fc.common.IDfTime getExpirationDate()
+    my $self = shift;
+    my $getExpirationDate = JPL::AutoLoader::getmeth('getExpirationDate',[],['com.documentum.fc.common.IDfTime']);
+    my $rv = "";
+    eval { $rv = $$self->$getExpirationDate(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        bless (\$rv,IDfTime);
+        return \$rv;
+    }
+}
+
+sub setEffectiveDate {
+	## METHOD: void setEffectiveDate(com.documentum.fc.common.IDfTime)
+    my ($self,$p0) = @_;
+    my $setEffectiveDate = JPL::AutoLoader::getmeth('setEffectiveDate',['com.documentum.fc.common.IDfTime'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$setEffectiveDate($$p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub setExpirationDate {
+	## METHOD: void setExpirationDate(com.documentum.fc.common.IDfTime)
+    my ($self,$p0) = @_;
+    my $setExpirationDate = JPL::AutoLoader::getmeth('setExpirationDate',['com.documentum.fc.common.IDfTime'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$setExpirationDate($$p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub getChildId {
+	## METHOD: com.documentum.fc.common.IDfId getChildId()
+    my $self = shift;
+    my $getChildId = JPL::AutoLoader::getmeth('getChildId',[],['com.documentum.fc.common.IDfId']);
+    my $rv = "";
+    eval { $rv = $$self->$getChildId(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        bless (\$rv,IDfId);
+        return \$rv;
+    }
+}
+
+sub setChildId {
+	## METHOD: void setChildId(com.documentum.fc.common.IDfId)
+    my ($self,$p0) = @_;
+    my $setChildId = JPL::AutoLoader::getmeth('setChildId',['com.documentum.fc.common.IDfId'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$setChildId($$p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub getChildLabel {
+	## METHOD: java.lang.String getChildLabel()
+    my $self = shift;
+    my $getChildLabel = JPL::AutoLoader::getmeth('getChildLabel',[],['java.lang.String']);
+    my $rv = "";
+    eval { $rv = $$self->$getChildLabel(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub setChildLabel {
+	## METHOD: void setChildLabel(java.lang.String)
+    my ($self,$p0) = @_;
+    my $setChildLabel = JPL::AutoLoader::getmeth('setChildLabel',['java.lang.String'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$setChildLabel($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub getPermanentLink {
+	## METHOD: boolean getPermanentLink()
+    my $self = shift;
+    my $getPermanentLink = JPL::AutoLoader::getmeth('getPermanentLink',[],['boolean']);
+    my $rv = "";
+    eval { $rv = $$self->$getPermanentLink(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub setPermanentLink {
+	## METHOD: void setPermanentLink(boolean)
+    my ($self,$p0) = @_;
+    my $setPermanentLink = JPL::AutoLoader::getmeth('setPermanentLink',['boolean'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$setPermanentLink($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
 }
 
 
 1;
-#__EOF__
+
+# ------------------------------------------------------------------ #
+#                                <SDG><
+# ------------------------------------------------------------------ #

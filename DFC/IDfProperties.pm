@@ -1,215 +1,401 @@
-# ------------------------------------------------------------------- #
-# IDfProperties
-# com.documentum.fc.common.IDfProperties
-# ------------------------------------------------------------------- #
-package IDfProperties;
+# ------------------------------------------------------------------ #
+# Db::DFC Version 0.4 -- Thu Feb 22 22:04:43 2001
+# (C) 2000-2001 M.S. Roth
+# 
+# IDfProperties (com.documentum.fc.common.IDfProperties)
+# ------------------------------------------------------------------ #
 
+package IDfProperties;
 
 use JPL::AutoLoader;
 use JPL::Class 'com::documentum::fc::common::IDfProperties';
-use JPL::Class 'com::documentum::fc::common::IDfId';
-use JPL::Class 'com::documentum::fc::common::IDfList';
-use JPL::Class 'com::documentum::fc::common::IDfTime';
-use JPL::Class 'com::documentum::fc::common::IDfValue';
+use JPL::Class 'com.documentum.fc.common.IDfId';
+use JPL::Class 'com.documentum.fc.common.IDfList';
+use JPL::Class 'com.documentum.fc.common.IDfValue';
+use JPL::Class 'com.documentum.fc.common.IDfTime';
 
+use constant DF_BOOLEAN => 0;
+use constant DF_INTEGER => 1;
+use constant DF_STRING => 2;
+use constant DF_ID => 3;
+use constant DF_TIME => 4;
+use constant DF_DOUBLE => 5;
+use constant DF_OBJECT => 1024;
+use constant DF_VALUE => 1025;
+use constant DF_LIST => 4096;
 
-use constant DF_BOOLEAN =>  0;
-use constant DF_DOUBLE  =>  5;
-use constant DF_ID      =>  3;
-use constant DF_INTEGER =>  1;
-use constant DF_LIST    =>  6;  # unknown
-use constant DF_OBJECT  =>  7;  # unknown
-use constant DF_STRING  =>  2;
-use constant DF_TIME    =>  4;
-use constant DF_VALUE   =>  8;  # unknown
-
-
-sub clear {
-	my $self = shift;
-	my $clear = JPL::AutoLoader::getmeth('clear',[],[]);
-	return $$self->$clear();
-}
-
-sub containsProperty {
-	my ($self,$propertyName) = @_;
-	my $containsProperty = JPL::AutoLoader::getmeth('containsProperty',['java.lang.String'],['boolean']);
-	return $$self->$containsProperty($propertyName);
-}
-
-sub containsValue {
-	my ($self,$propertyValue) = @_;
-	my $containsValue = JPL::AutoLoader::getmeth('containsValue',['java.lang.Object'],['boolean']);
-	return $$self->$containsValue($propertyValue);
+sub put {
+	## METHOD: void put(java.lang.String,java.lang.Object)
+    my ($self,$p0,$p1) = @_;
+    my $put = JPL::AutoLoader::getmeth('put',['java.lang.String','java.lang.Object'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$put($p0,$p1); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
 }
 
 sub get {
-	my ($self,$propertyName) = @_;
-	my $get = JPL::AutoLoader::getmeth('get',['java.lang.String'],['java.lang.Object']);
-	return $$self->$get($propertyName);
-}
-
-sub getBoolean {
-	my ($self,$propertyName) = @_;
-	my $getBoolean = JPL::AutoLoader::getmeth('getBoolean',['java.lang.String'],['boolean']);
-	return $$self->$getBoolean($propertyName);
-}
-
-sub getCount {
-	my $self = shift;
-	my $getCount = JPL::AutoLoader::getmeth('getCount',[],['int']);
-	return $$self->$getCount();
-}
-
-sub getDouble {
-	my ($self,$propertyName) = @_;
-	my $getDouble = JPL::AutoLoader::getmeth('getDouble',['java.lang.String'],['double']);
-	return $$self->$getDouble($propertyName);
-}
-
-sub getId {
-	my ($self,$propertyName) = @_;
-	my $getId = JPL::AutoLoader::getmeth('getId',['java.lang.String'],['com.documentum.fc.common.IDfId']);
-	my $tmp = $$self->$getId($propertyName);
-	if ($tmp) {
-		bless(\$tmp,IDfId);
-		return \$tmp;
-	} else {
-		return undef;
-	}
-}
-
-sub getInt {
-	my ($self,$propertyName) = @_;
-	my $getInt = JPL::AutoLoader::getmeth('getInt',['java.lang.String'],['int']);
-	return $$self->$getInt($propertyName);
-}
-
-sub getList {
-	my ($self,$propertyName) = @_;
-	my $getList = JPL::AutoLoader::getmeth('getList',['java.lang.String'],['com.documentum.fc.common.IDfList']);
-	my $tmp = $$self->$getList($propertyName);
-	if ($tmp) {
-		bless(\$tmp,IDfList);
-		return \$tmp;
-	} else {
-		return undef;
-	}
-}
-
-sub getProperties {
-	my $self = shift;
-	my $getProperties = JPL::AutoLoader::getmeth('getProperties',[],['com.documentum.fc.common.IDfList']);
-	my $tmp = $$self->$getProperties();
-	if ($tmp) {
-		bless(\$tmp,IDfList);
-		return \$tmp;
-	} else {
-		return undef;
-	}
-}
-
-sub getPropertyType {
-	my ($self,$propertyName) = @_;
-	my $getPropertyType = JPL::AutoLoader::getmeth('getPropertyType',['java.lang.String'],['int']);
-	return $$self->$getPropertyType($propertyName);
-}
-
-sub getString {
-	my ($self,$propertyName) = @_;
-	my $getString = JPL::AutoLoader::getmeth('getString',['java.lang.String'],['java.lang.String']);
-	return $$self->$getString($propertyName);
-}
-
-sub getTime {
-	my ($self,$propertyName) = @_;
-	my $getTime = JPL::AutoLoader::getmeth('getTime',['java.lang.String'],['com.documentum.fc.common.IDfTime']);
-	my $tmp = $$self->$getTime($propertyName);
-	if ($tmp) {
-		bless(\$tmp,IDfTime);
-		return \$tmp;
-	} else {
-		return undef;
-	}
+	## METHOD: java.lang.Object get(java.lang.String)
+    my ($self,$p0) = @_;
+    my $get = JPL::AutoLoader::getmeth('get',['java.lang.String'],['java.lang.Object']);
+    my $rv = "";
+    eval { $rv = $$self->$get($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
 }
 
 sub getValue {
-	my ($self,$propertyName) = @_;
-	my $getValue = JPL::AutoLoader::getmeth('getValue',['java.lang.String'],['com.documentum.fc.common.IDfValue']);
-	my $tmp = $$self->$getValue($propertyName);
-	if ($tmp) {
-		bless(\$tmp,IDfValue);
-		return \$tmp;
-	} else {
-		return undef;
-	}
+	## METHOD: com.documentum.fc.common.IDfValue getValue(java.lang.String)
+    my ($self,$p0) = @_;
+    my $getValue = JPL::AutoLoader::getmeth('getValue',['java.lang.String'],['com.documentum.fc.common.IDfValue']);
+    my $rv = "";
+    eval { $rv = $$self->$getValue($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        bless (\$rv,IDfValue);
+        return \$rv;
+    }
 }
 
-sub isEmpty {
-	my $self = shift;
-	my $isEmpty = JPL::AutoLoader::getmeth('isEmpty',[],['boolean']);
-	return $$self->$isEmpty();
-}
-
-sub put {
-	my ($self,$propertyName,$propertyValue) = @_;
-	my $put = JPL::AutoLoader::getmeth('put',['java.lang.String','java.lang.Object'],[]);
-	return $$self->$put($propertyName,$propertyValue);
-}
-
-sub putBoolean {
-	my ($self,$propertyName,$propertyValue) = @_;
-	my $putBoolean = JPL::AutoLoader::getmeth('putBoolean',['java.lang.String','boolean'],[]);
-	return $$self->$putBoolean($propertyName,$propertyValue);
-}
-
-sub putDouble {
-	my ($self,$propertyName,$propertyValue) = @_;
-	my $putDouble = JPL::AutoLoader::getmeth('putDouble',['java.lang.String','double'],[]);
-	return $$self->$putDouble($propertyName,$propertyValue);
-}
-
-sub putId {
-	my ($self,$propertyName,$propertyValue) = @_;
-	my $putId = JPL::AutoLoader::getmeth('putId',['java.lang.String','com.documentum.fc.common.IDfId'],[]);
-	return $$self->$putId($propertyName,$$propertyValue);
-}
-
-sub putInt {
-	my ($self,$propertyName,$propertyValue) = @_;
-	my $putInt = JPL::AutoLoader::getmeth('putInt',['java.lang.String','int'],[]);
-	return $$self->$putInt($propertyName,$propertyValue);
-}
-
-sub putList {
-	my ($self,$propertyName,$propertyValue) = @_;
-	my $putList = JPL::AutoLoader::getmeth('putList',['java.lang.String','com.documentum.fc.common.IDfList'],[]);
-	return $$self->$putList($propertyName,$$propertyValue);
-}
-
-sub putString {
-	my ($self,$propertyName,$propertyValue) = @_;
-	my $putString = JPL::AutoLoader::getmeth('putString',['java.lang.String','java.lang.String'],[]);
-	return $$self->$putString($propertyName,$propertyValue);
-}
-
-sub putTime {
-	my ($self,$propertyName,$propertyValue) = @_;
-	my $putTime = JPL::AutoLoader::getmeth('putTime',['java.lang.String','com.documentum.fc.common.IDfTime'],[]);
-	return $$self->$putTime($propertyName,$$propertyValue);
-}
-
-sub putValue {
-	my ($self,$propertyName,$propertyValue) = @_;
-	my $putValue = JPL::AutoLoader::getmeth('putValue',['java.lang.String','com.documentum.fc.common.IDfValue'],[]);
-	return $$self->$putValue($propertyName,$$propertyValue);
+sub clear {
+	## METHOD: void clear()
+    my $self = shift;
+    my $clear = JPL::AutoLoader::getmeth('clear',[],[]);
+    my $rv = "";
+    eval { $rv = $$self->$clear(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
 }
 
 sub remove {
-	my ($self,$propertyName) = @_;
-	my $remove = JPL::AutoLoader::getmeth('remove',['java.lang.String'],[]);
-	return $$self->$remove($propertyName);
+	## METHOD: void remove(java.lang.String)
+    my ($self,$p0) = @_;
+    my $remove = JPL::AutoLoader::getmeth('remove',['java.lang.String'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$remove($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub isEmpty {
+	## METHOD: boolean isEmpty()
+    my $self = shift;
+    my $isEmpty = JPL::AutoLoader::getmeth('isEmpty',[],['boolean']);
+    my $rv = "";
+    eval { $rv = $$self->$isEmpty(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub containsValue {
+	## METHOD: boolean containsValue(java.lang.Object)
+    my ($self,$p0) = @_;
+    my $containsValue = JPL::AutoLoader::getmeth('containsValue',['java.lang.Object'],['boolean']);
+    my $rv = "";
+    eval { $rv = $$self->$containsValue($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub getBoolean {
+	## METHOD: boolean getBoolean(java.lang.String)
+    my ($self,$p0) = @_;
+    my $getBoolean = JPL::AutoLoader::getmeth('getBoolean',['java.lang.String'],['boolean']);
+    my $rv = "";
+    eval { $rv = $$self->$getBoolean($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub getProperties {
+	## METHOD: com.documentum.fc.common.IDfList getProperties()
+    my $self = shift;
+    my $getProperties = JPL::AutoLoader::getmeth('getProperties',[],['com.documentum.fc.common.IDfList']);
+    my $rv = "";
+    eval { $rv = $$self->$getProperties(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        bless (\$rv,IDfList);
+        return \$rv;
+    }
+}
+
+sub getTime {
+	## METHOD: com.documentum.fc.common.IDfTime getTime(java.lang.String)
+    my ($self,$p0) = @_;
+    my $getTime = JPL::AutoLoader::getmeth('getTime',['java.lang.String'],['com.documentum.fc.common.IDfTime']);
+    my $rv = "";
+    eval { $rv = $$self->$getTime($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        bless (\$rv,IDfTime);
+        return \$rv;
+    }
+}
+
+sub putValue {
+	## METHOD: void putValue(java.lang.String,com.documentum.fc.common.IDfValue)
+    my ($self,$p0,$p1) = @_;
+    my $putValue = JPL::AutoLoader::getmeth('putValue',['java.lang.String','com.documentum.fc.common.IDfValue'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$putValue($p0,$$p1); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub getInt {
+	## METHOD: int getInt(java.lang.String)
+    my ($self,$p0) = @_;
+    my $getInt = JPL::AutoLoader::getmeth('getInt',['java.lang.String'],['int']);
+    my $rv = "";
+    eval { $rv = $$self->$getInt($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub getDouble {
+	## METHOD: double getDouble(java.lang.String)
+    my ($self,$p0) = @_;
+    my $getDouble = JPL::AutoLoader::getmeth('getDouble',['java.lang.String'],['double']);
+    my $rv = "";
+    eval { $rv = $$self->$getDouble($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub getId {
+	## METHOD: com.documentum.fc.common.IDfId getId(java.lang.String)
+    my ($self,$p0) = @_;
+    my $getId = JPL::AutoLoader::getmeth('getId',['java.lang.String'],['com.documentum.fc.common.IDfId']);
+    my $rv = "";
+    eval { $rv = $$self->$getId($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        bless (\$rv,IDfId);
+        return \$rv;
+    }
+}
+
+sub getList {
+	## METHOD: com.documentum.fc.common.IDfList getList(java.lang.String)
+    my ($self,$p0) = @_;
+    my $getList = JPL::AutoLoader::getmeth('getList',['java.lang.String'],['com.documentum.fc.common.IDfList']);
+    my $rv = "";
+    eval { $rv = $$self->$getList($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        bless (\$rv,IDfList);
+        return \$rv;
+    }
+}
+
+sub putString {
+	## METHOD: void putString(java.lang.String,java.lang.String)
+    my ($self,$p0,$p1) = @_;
+    my $putString = JPL::AutoLoader::getmeth('putString',['java.lang.String','java.lang.String'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$putString($p0,$p1); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub putInt {
+	## METHOD: void putInt(java.lang.String,int)
+    my ($self,$p0,$p1) = @_;
+    my $putInt = JPL::AutoLoader::getmeth('putInt',['java.lang.String','int'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$putInt($p0,$p1); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub getCount {
+	## METHOD: int getCount()
+    my $self = shift;
+    my $getCount = JPL::AutoLoader::getmeth('getCount',[],['int']);
+    my $rv = "";
+    eval { $rv = $$self->$getCount(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub getString {
+	## METHOD: java.lang.String getString(java.lang.String)
+    my ($self,$p0) = @_;
+    my $getString = JPL::AutoLoader::getmeth('getString',['java.lang.String'],['java.lang.String']);
+    my $rv = "";
+    eval { $rv = $$self->$getString($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub putId {
+	## METHOD: void putId(java.lang.String,com.documentum.fc.common.IDfId)
+    my ($self,$p0,$p1) = @_;
+    my $putId = JPL::AutoLoader::getmeth('putId',['java.lang.String','com.documentum.fc.common.IDfId'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$putId($p0,$$p1); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub putTime {
+	## METHOD: void putTime(java.lang.String,com.documentum.fc.common.IDfTime)
+    my ($self,$p0,$p1) = @_;
+    my $putTime = JPL::AutoLoader::getmeth('putTime',['java.lang.String','com.documentum.fc.common.IDfTime'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$putTime($p0,$$p1); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub putList {
+	## METHOD: void putList(java.lang.String,com.documentum.fc.common.IDfList)
+    my ($self,$p0,$p1) = @_;
+    my $putList = JPL::AutoLoader::getmeth('putList',['java.lang.String','com.documentum.fc.common.IDfList'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$putList($p0,$$p1); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub putBoolean {
+	## METHOD: void putBoolean(java.lang.String,boolean)
+    my ($self,$p0,$p1) = @_;
+    my $putBoolean = JPL::AutoLoader::getmeth('putBoolean',['java.lang.String','boolean'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$putBoolean($p0,$p1); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub getPropertyType {
+	## METHOD: int getPropertyType(java.lang.String)
+    my ($self,$p0) = @_;
+    my $getPropertyType = JPL::AutoLoader::getmeth('getPropertyType',['java.lang.String'],['int']);
+    my $rv = "";
+    eval { $rv = $$self->$getPropertyType($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub containsProperty {
+	## METHOD: boolean containsProperty(java.lang.String)
+    my ($self,$p0) = @_;
+    my $containsProperty = JPL::AutoLoader::getmeth('containsProperty',['java.lang.String'],['boolean']);
+    my $rv = "";
+    eval { $rv = $$self->$containsProperty($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub putDouble {
+	## METHOD: void putDouble(java.lang.String,double)
+    my ($self,$p0,$p1) = @_;
+    my $putDouble = JPL::AutoLoader::getmeth('putDouble',['java.lang.String','double'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$putDouble($p0,$p1); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
 }
 
 
 1;
-#__EOF__
+
+# ------------------------------------------------------------------ #
+#                                <SDG><
+# ------------------------------------------------------------------ #

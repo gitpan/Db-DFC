@@ -1,4 +1,4 @@
-#! /usr/local/bin/perl -w
+#! /usr/local/bin/perl 
 # dfc-idql.pl
 # (c) 2000 MS Roth -- michael.s.roth@saic.com
 
@@ -31,7 +31,7 @@ sub dfcErrors {
 sub logon {
     print "\n" x 10;
     print "(c) 2000 MS Roth. Distributed as part of Db::DFC\n";
-    print "DFC-Interactive Document Query Language Editor ver. A\n";
+    print "DFC-Interactive Document Query Language Editor\n";
     print "---------------------------------------------------------\n";
     print "Enter Docbase Name: ";
     chomp ($DOCBASE = <STDIN>);

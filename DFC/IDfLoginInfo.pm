@@ -1,104 +1,159 @@
-# ------------------------------------------------------------------- #
-# IDfLoginInfo
-# com::documentum::fc::common::IDfLoginInfo;
-# ------------------------------------------------------------------- #
+# ------------------------------------------------------------------ #
+# Db::DFC Version 0.4 -- Thu Feb 22 22:04:43 2001
+# (C) 2000-2001 M.S. Roth
+# 
+# IDfLoginInfo (com.documentum.fc.common.IDfLoginInfo)
+# ------------------------------------------------------------------ #
+
 package IDfLoginInfo;
 
 use JPL::AutoLoader;
-use JPL::Class 'com::documentum::fc::common::DfLoginInfo';
 use JPL::Class 'com::documentum::fc::common::IDfLoginInfo';
 
 
 sub getDomain {
-    my ($self) = @_;
-    my $getDomain = JPL::AutoLoader::getmeth('getDomain',
-                                             [],
-                                             ['java.lang.String']
-                                            );
-    return $$self->$getDomain();
-}
-
-sub getPassword {
-    my ($self) = @_;
-    my $getPassword = JPL::AutoLoader::getmeth('getPassword',
-                                               [],
-                                               ['java.lang.String']
-                                              );
-    return $$self->$getPassword();
-}
-
-sub getUser {
-    my ($self) = @_;
-    my $getUser = JPL::AutoLoader::getmeth('getUser',
-                                           [],
-                                           ['java.lang.String']
-                                          );
-    return $$self->$getUser();
-}
-
-sub getUserArg1 {
-    my ($self) = @_;
-    my $getUserArg1 = JPL::AutoLoader::getmeth('getUserArg1',
-                                               [],
-                                               ['java.lang.String']
-                                              );
-    return $$self->$getUserArg1();
-}
-
-sub getUserArg2 {
-    my ($self) = @_;
-    my $getUserArg2 = JPL::AutoLoader::getmeth('getUserArg2',
-                                               [],
-                                               ['java.lang.String']
-                                              );
-    return $$self->$getUserArg2();
+	## METHOD: java.lang.String getDomain()
+    my $self = shift;
+    my $getDomain = JPL::AutoLoader::getmeth('getDomain',[],['java.lang.String']);
+    my $rv = "";
+    eval { $rv = $$self->$getDomain(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
 }
 
 sub setDomain {
-    my ($self,$domain) = @_;
-    my $setDomain = JPL::AutoLoader::getmeth('setDomain',
-                                             ['java.lang.String'],
-                                             []
-                                            );
-    return $$self->$setDomain($domain);
+	## METHOD: void setDomain(java.lang.String)
+    my ($self,$p0) = @_;
+    my $setDomain = JPL::AutoLoader::getmeth('setDomain',['java.lang.String'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$setDomain($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
 }
 
-sub setPassword {
-    my ($self,$password) = @_;
-    my $setPassword = JPL::AutoLoader::getmeth('setPassword',
-                                               ['java.lang.String'],
-                                               []
-                                              );
-    return $$self->$setPassword($password);
+sub getPassword {
+	## METHOD: java.lang.String getPassword()
+    my $self = shift;
+    my $getPassword = JPL::AutoLoader::getmeth('getPassword',[],['java.lang.String']);
+    my $rv = "";
+    eval { $rv = $$self->$getPassword(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub getUser {
+	## METHOD: java.lang.String getUser()
+    my $self = shift;
+    my $getUser = JPL::AutoLoader::getmeth('getUser',[],['java.lang.String']);
+    my $rv = "";
+    eval { $rv = $$self->$getUser(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
 }
 
 sub setUser {
-    my ($self,$user) = @_;
-    my $setUser = JPL::AutoLoader::getmeth('setUser',
-                                           ['java.lang.String'],
-                                           []
-                                          );
-    return $$self->$setUser($user);
+	## METHOD: void setUser(java.lang.String)
+    my ($self,$p0) = @_;
+    my $setUser = JPL::AutoLoader::getmeth('setUser',['java.lang.String'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$setUser($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
 }
 
-sub setUserArg1 {
-    my ($self,$arg1) = @_;
-    my $setUserArg1 = JPL::AutoLoader::getmeth('setUserArg1',
-                                               ['java.lang.String'],
-                                               []
-                                              );
-    return $$self->$setUserArg1($arg1);
+sub setPassword {
+	## METHOD: void setPassword(java.lang.String)
+    my ($self,$p0) = @_;
+    my $setPassword = JPL::AutoLoader::getmeth('setPassword',['java.lang.String'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$setPassword($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub getUserArg2 {
+	## METHOD: java.lang.String getUserArg2()
+    my $self = shift;
+    my $getUserArg2 = JPL::AutoLoader::getmeth('getUserArg2',[],['java.lang.String']);
+    my $rv = "";
+    eval { $rv = $$self->$getUserArg2(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
 }
 
 sub setUserArg2 {
-    my ($self,$arg2) = @_;
-    my $setUserArg2 = JPL::AutoLoader::getmeth('setUserArg2',
-                                               ['java.lang.String'],
-                                               []
-                                              );
-    return $$self->$setUserArg2($arg2);
+	## METHOD: void setUserArg2(java.lang.String)
+    my ($self,$p0) = @_;
+    my $setUserArg2 = JPL::AutoLoader::getmeth('setUserArg2',['java.lang.String'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$setUserArg2($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub getUserArg1 {
+	## METHOD: java.lang.String getUserArg1()
+    my $self = shift;
+    my $getUserArg1 = JPL::AutoLoader::getmeth('getUserArg1',[],['java.lang.String']);
+    my $rv = "";
+    eval { $rv = $$self->$getUserArg1(); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
+}
+
+sub setUserArg1 {
+	## METHOD: void setUserArg1(java.lang.String)
+    my ($self,$p0) = @_;
+    my $setUserArg1 = JPL::AutoLoader::getmeth('setUserArg1',['java.lang.String'],[]);
+    my $rv = "";
+    eval { $rv = $$self->$setUserArg1($p0); };
+    if (JNI::ExceptionOccurred()) {
+        Db::DFC::dfcException();
+        return;
+    } else {
+        return $rv;
+    }
 }
 
 
 1;
-#__EOF__
+
+# ------------------------------------------------------------------ #
+#                                <SDG><
+# ------------------------------------------------------------------ #
